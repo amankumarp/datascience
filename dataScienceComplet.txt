@@ -1,0 +1,109 @@
+# 1 th  tutorials
+import pandas as pd
+
+prices=[[71,32,34],[54,54,23],[23,44,23],[54,54,3],[5,5,3],[4,4,2]]
+
+simple_dataframe=pd.DataFrame(prices)
+print(simple_dataframe)
+header_dataframe=pd.DataFrame(prices,columns=['jan','feb','march'])
+print(header_dataframe)
+print(header_dataframe['feb'][0])
+print("first five row are")
+print(header_dataframe.head())
+print("last five row")
+print(header_dataframe.tail())
+
+
+#2 tutorials
+
+import pandas as pd
+
+
+
+data=pd.read_csv("aman.csv") #give the file name .csv file
+print (data['actress'][12])
+print(data)
+
+
+#3 tutorials
+import pandas as pd
+
+prices=[[71,32,34],[54,54,23],[23,44,23],[54,54,3],[5,5,3],[4,4,2]]
+
+# simple_dataframe=pd.DataFrame(prices)
+# print(simple_dataframe)
+header_dataframe=pd.DataFrame(prices,columns=['jan','feb','march'])
+pd.DataFrame(header_dataframe).to_csv('output .csv')
+
+#4  tutorials
+
+import quandl
+dataset=quandl.get("CHRIS/ASX_WM2")  # it quandal data
+print(dataset)
+print(dataset['Previous Settlement'][0])
+
+
+#5 tutorials json
+
+
+import json
+myjson='''
+{
+"status":"ok",
+"source":"this",
+"value":"uid"
+}
+'''
+a=json.loads(myjson)
+print(a["source"])
+
+
+#6 tutorials json api
+import urllib.request as urlr
+import json
+raw=urlr.urlopen("")  #give the json news api key
+print(raw.read())
+myjson=raw.read()
+a=json.loads(myjson.decode())
+for i in range(0,5):
+    print("Headline number "+str(i+1)+"is")
+    print(a['articles'][i]['title'])
+
+
+#7 tutorials numpy
+
+import numpy as np
+
+
+myarray=np.array([[1,2,3],[4,45,6]])
+print(myarray)
+print(myarray.reshape(1,6))
+zero_mat=np.zeros([6,4],dtype=int)
+print(zero_mat)
+one_mat=np.ones([4,4],dtype=int)
+print(one_mat)
+
+#8 tutorial
+import numpy as np
+arr =np.array([1,2,3])
+print(arr)
+arr2=np.append(arr,[4,7])
+print(arr2)
+arr3=np.delete(arr2,1)
+print(arr3)
+arr4=np.concatenate((arr,np.array([3,4])),axis=0)
+print(arr4)
+
+
+
+#9 tutorial news api load
+
+
+import requests
+import json
+
+
+tech=requests.get("https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=dc397d02ba554da5a9885a606670e9e4")
+technical=tech.json()
+print(technical['articles'][0]['title'])
+
